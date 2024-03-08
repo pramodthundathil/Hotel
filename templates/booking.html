@@ -1,0 +1,85 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+        <!-- Booking Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="section-title text-center text-primary text-uppercase">Room Booking</h6>
+                    <h1 class="mb-5">Book  <span class="text-primary text-uppercase">{{room.Hotel_Name}} </span></h1>
+                    
+                    <br><br>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="{{room.Hotel_pic.url}}" style="margin-top: 25%;">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{%static 'img/about-2.jpg' %}">
+                            </div>
+                            <div class="col-6 text-end">
+                                <h4>Price: {{room.Price}}</h4>
+                                <h4>Aminities: {{room.Aminities}}</h4>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="wow fadeInUp" data-wow-delay="0.2s">
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+                                            <label for="name">Your Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="Number" name="phone" class="form-control" id="email" placeholder="Phone Number">
+                                            <label for="email">Your Phone</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" name="address" placeholder="Address"  style="height: 100px"></textarea>
+                                            <label for="message">Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating date" id="date3" data-target-input="nearest">
+                                            <input type="date" name="sdate" class="form-control "  placeholder="Check In" />
+                                            <label for="checkin">Check In</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating date" id="date4" data-target-input="nearest">
+                                            <input type="date" class="form-control "  name="cdate" placeholder="Check Out"  />
+                                            <label for="checkout">Check Out</label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" name="requests" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                            <label for="message">Special Request</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Booking End -->
+
+
+   {% endblock %}

@@ -1,0 +1,65 @@
+{% extends "adminindex.html" %}
+{% block content %}
+
+<style>
+    .content{
+        width:100%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border: 1px solid lightgreen;
+        padding: 20px;
+        text-align: center;
+    }
+    h6{
+        margin-top: 20px;
+        color: rgb(45, 67, 67);
+        text-decoration: underline;
+    }
+    table{
+        border-bottom: 4px solid ;
+        margin-bottom: 100px;
+
+    }
+
+</style>
+
+<div class="container">
+    <div class="content">
+
+        <h1>Bookings</h1>
+      
+        <h6>Hotel Booking</h6>
+
+        <table class="table table-striped mt-4">
+            <title>Hotel Booking</title>
+            <tr>
+                <th>Hotel Name</th>
+                <th>Date</th>
+                <th>Destination</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            {% for item in hotel  %}
+              
+            <tr>
+                <td>{{item.Hotel.Hotel_Name}}</td>
+                <td>{{item.date}}</td>
+                <td>{{item.Hotel.Destination_Near}}</td>
+                <td>{{item.status}}</td>
+                <th><a href="{%url 'deleteHotelBooking' item.id%}" class="btn btn-outline-danger btn-sm">delete</a></th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+       
+
+
+      
+
+
+    </div>
+</div>
+{% endblock %}
